@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+{% load staticfiles %}
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>CampusBuzz</title>
+        <link rel="shortcut icon" href="{% static 'home/images/faviconlogo.ico' %}" />
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet">
+		<!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js /bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Shrikhand|ZCOOL+XiaoWei" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+
+	<body style="
+	font-family: 'Frank Ruhl Libre', serif;
+	background-image: url({% static 'home/images/home-2-bg.png' %});
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+	background-color: #009fff;" >
+
+    <!--navbar-->
+            <nav class="navbar navbar-expand-lg" style="font-size:large; background-color:#394db4;">
+
+                <a class="navbar-brand" href="#">
+                    <!--<img src="{% static 'home/images/logo_notext1.png' %}" width="50" height="50" class="d-inline-block align-top" alt="">-->
+
+                </a>
+                <a class="navbar-brand" href="#" style="font-size:large "><span style="font-family: 'Rock Salt', cursive; color:white;">CampusBuzz</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" style="color:white;" href="{% url 'home:home' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:white;" href="{% url 'login:home' user.username %}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:white;" href="{% url 'login:logout' %}">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:white;" href="{% url 'home:find_friends' %}">Friends</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:white;" href="{% url 'login:edit_profile' user.username %}">Edit profile</a>
+                        </li>
+
+                        <!--<li class="nav-item dropdown">-->
+                            <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                                <!--Dropdown-->
+                            <!--</a>-->
+                            <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                                <!--<a class="dropdown-item" href="#">Action</a>-->
+                                <!--<a class="dropdown-item" href="#">Another action</a>-->
+                                <!--<div class="dropdown-divider"></div>-->
+                                <!--<a class="dropdown-item" href="#">Something else here</a>-->
+                            <!--</div>-->
+                        <!--</li>-->
+
+                    </ul>
+                    <!--<form class="form-inline my-2 my-lg-0">-->
+                        <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+                        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+                    <!--</form>-->
+                </div>
+            </nav>
+            {% block content %}
+            {% endblock %}
+
+    <!--<div class="modal-footer" style="font-size:large">-->
+          <!--<div style="font-size:large">-->
+          <!--&lt;!&ndash;<button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>&ndash;&gt;-->
+            <!--<h2>©2019 SP</h2>-->
+            <!--&lt;!&ndash;<ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>&ndash;&gt;-->
+
+          <!--</div>-->
+    <!--</div>-->
+
+    <footer style="padding: 20px 0;">
+        <div class="container text-center">
+            <div class="copyright" style="padding-top: 5px; font-size: 12px; color: #838488; line-height: normal;"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </div>
+        </div>
+    </footer>
+
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'home/js/scripts.js' %}"></script>
+	</body>
+</html>

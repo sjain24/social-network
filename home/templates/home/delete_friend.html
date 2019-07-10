@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load log %}
+<head>
+	<title>{{user.first_name}}</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Civic - CV Resume">
+	<meta name="keywords" content="resume, civic, onepage, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link href="img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'profile/css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'profile/css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'profile/css/flaticon.css' %}"/>
+	<link rel="stylesheet" href="{% static 'profile/css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'profile/css/magnific-popup.css' %}"/>
+	<link rel="stylesheet" href="{% static 'profile/css/style.css' %}"/>
+
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section start -->
+	<header class="header-section">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="site-logo">
+						<h2><a href="#">Facebook</a></h2>
+						<p>Enhance your online presence</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+	<!-- Hero section start -->
+	<section class="hero-section spad">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="hero-text">
+								<h2>{{user.first_name}} {{user.last_name}}</h2>
+								<p>{{user.profile.bio}}</p>
+							</div>
+							<div class="hero-info">
+								<h2>General Info</h2>
+								<ul>
+									<!--<li><span>Date of Birth</span>{{user.profile.date_of_birth}}</li>-->
+									<!--<li><span>Address</span>Rosia Road 55, Gibraltar, UK</li>-->
+									<li><span>E-mail</span>{{user.email}}</li>
+									<li><span>Location</span>{{user.profile.location}}</li>
+									<li><span>Phone</span>{{user.profile.phone}}</li>
+								</ul>
+							</div>
+
+							<br>
+							{% if request.user.is_authenticated %}
+								<button class="login100-form-btn">
+									<a href="{% url 'login:logout' %}"><strong>REMOVE FRIEND</strong></a>
+								</button>
+							</div>
+							{% endif %}
+						</div>
+						<div class="col-lg-6">
+							<figure class="hero-image">
+								<img src="{{user.profile.profile_pic.url}}" alt="profile_pic" />
+							</figure>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+	<!-- Hero section end -->
+
+	<!-- Social links section start -->
+
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'profile/js/jquery-2.1.4.min.js' %}"></script>
+	<script src="{% static 'profile/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'profile/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'profile/js/magnific-popup.min.js' %}"></script>
+	<script src="{% static 'profile/js/circle-progress.min.js' %}"></script>
+	<script src="{% static 'profile/js/main.js' %}"></script>
+</body>
+</html>

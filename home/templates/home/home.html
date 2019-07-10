@@ -1,0 +1,68 @@
+{% extends 'home/base.html' %}
+            {% block content %}
+
+<style>
+h1{
+    color:white;
+}
+
+
+</style>
+
+
+                    <div class="container col-lg-8 col-m-6 col-sm-6" >
+                        <h1 class="display-3" style="font-family: 'Baloo Chettan', cursive;"><img src="{{user.profile.profile_pic.url}}" alt="avatar" style="vertical-align: middle; width: 50px; height: 50px; border-radius: 50%;"/> Welcome {{user.first_name}}!</h1>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <h3 style="color: white">Whats on your mind?{{form.as_p}}</h3>
+                            <button class="btn btn-primary" type="submit">Create Post</button>
+                        </form>
+                        <h3>{{text}}</h3>
+
+                        {% for post in posts %}
+                         <div class="panel panel-default" style="">
+                                <div class="panel-heading" style="background-color: #cce5ff;"><h3>{{post.user}} </h3></div>
+                               	<div class="panel-body">
+                                	<h3>{{ post.post }}</h3>
+                                    <h4>Posted by {{post.user.get_full_name}} on {{post.created}}</h4>
+                                </div>
+                         </div>
+
+
+                        {% endfor %}
+
+                    </div>
+
+
+                    <div class="container col-lg-4 col-m-4 col-sm-2">
+
+                        <h3>People you may know</h3>
+                        <h2>
+                            {% for user in users %}
+                                {% if user != request.user and user not in friends  %}
+                                    <div class="" style="margin: 30px;background-color: #cce5ff; border:1px solid transparent; border-radius:10px; padding: 15px;">
+                                        <!--<div class="panel-thumbnail"><img src="/assets/example/bg_5.jpg" class="img-responsive"></div>-->
+                                        <div class="panel-body">
+                                          <!--<p class="lead"><a href="{% url 'login:home' user.username %}">{{user.first_name}} {{user.last_name}}</a><br></p>-->
+
+
+                                          <p>
+                                              {% if user.profile.profile_pic %}
+                                                    <img src="{{user.profile.profile_pic.url}}" alt="avatar" style="vertical-align: middle; width: 50px; height: 50px; border-radius: 50%; "/>
+                                              {% else %}
+                                                    <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
+                                              {% endif %}
+                                              <a href="{% url 'login:home' user.username %}">{{user.first_name}} {{user.last_name}}</a>
+                                              <h2><a href="{% url 'home:add_friend' user.pk%}" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-plus-sign"></span> Follow</a></h2>
+                                          </p>
+                                        </div>
+                                      </div>
+
+                                {% endif %}
+                            {% endfor %}
+                        </h2>
+                    </div>
+
+              {% endblock %}
+
+
