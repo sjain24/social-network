@@ -1,12 +1,11 @@
-CampusBuzz: Social networking site
+# CampusBuzz: Social networking site
 
-The site is live on sjain24.pythonanywhere.com
+## The project is live on sjain24.pythonanywhere.com
 
-Project based on Django 2.1 , python 3.6
+Project based on **Django 2.1, Python 3.6**
 
 Project by-
-Siddharth Jain (EEE,IITG)
-Prerak Patel (ECE, IITG)
+*Siddharth Jain @sjain24 (EEE,IITG)
+*Prerak Patel (ECE, IITG)
 
-For any information on project or for bug reporting contact:
-jain170107062@iitg.ac.in
+###### For any information on project or for bug reporting contact: jain170107062@iitg.ac.in
