@@ -1,6 +1,6 @@
 # CampusBuzz: Social networking site
 
-The project is live on __www.sjain24.pythonanywhere.com__
+The project is live on __http://sjain24.pythonanywhere.com/__
 
 Project based on **Django 2.1, Python 3.6**
 
